@@ -1,0 +1,500 @@
+/* Cake Page Styles */
+
+/* Custom cursor for entire website */
+* {
+    cursor: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADAAAAAwCAYAAABXAvmHAAAACXBIWXMAAAsTAAALEwEAmpwYAAAD2ElEQVR4nO2Yb2iVZRjGn/5BfakvQR86vM91PedtNCqaLEpossh9CE2iwoqS5TY1Mqc7uJpNbEpap/pQGOsPs3RkCTWQtERLTItZ6OzfahkNNetkEFkRRNCfO957e9xpphzne87eQ7vg5ny9f+e67+e9nseYCU1oQmOStfbcMAzPN+UokjMA/EzyLwBd1dXV55hyEoAvSQrToUS/ADZFjphyEYBfosaD5s2CykkKQXJX2YwUyaMKsGK/BEt2Cy6/2jvRV1FRcaFJugD8EDVslw9IkM1JsHSfoGqKd2IglUpdbJIsAN+rAx39QwBRdfQLrqrzEAfT6XRokiqSOQVY9skIQFQr9gsnz/AQR5xzV5gkCsBhHaFlH/0bIKqHBwVTbvMQR621k03SRPKgOrC073iAqFYdElw/2y/2ryTrTJIEYFAdaN/73wBRPXJYcMN9HuJ3a+3NJmkfMvvgBycGiOrRbwU3LfEQfwC42yRBJAd0hNp6Tw4wXPaOx/xO/A1gYRIc6FcH2t4rCGAEwnmIB8YVgOTH6sD9uwoGUIj6TqFLezey4wmwTwEW7zglAIWY0y10QyGQ5LPGmDNLDgBgj47Q4u2nDKAQ83uEl1zql/uVksdxku+rA5m3xgSgEIveFFZc5iE2p1Kp80oGAKBXHchsHTOAQrTuEFRW+XHaWbI4DuBdBVi05bQAgqjaevPj+N6SxHGS7+gILXzj9AGyURzvE1xZ4534vOhxHMB2daB5UzwA2ZwED32aH8cPhGGYLhoAyW0KsGBjfABZH8dv9BDfFS2Ok9yiIzS/J16AbE7sykFBzUwP8SOAa2IHiI49deDe12IHCKJadUiYF8edc1NjBSC5UQHu2VAcgOxQHLd1c70Tv8V6pwDQMwTwcvEAslEc/0YwveXYYscGQPJVBZj7UuHNrDwgQfseCVp3is1sE9v8uth568U2rBHUd2patbd26P0B01oEUxsFtXcKr73l2D7ECbBBAeZ0F7aYma35D2BjqT9JLogNAMB6BWhaW2Bwq/SN5Iaj+G4Abw87uQ7AM1G8JtlurW0BMI/kTOfcNGvtdWEYpkycItmtAI0vnLz5prX50XldbW3t2SYJAvCiHnENXSduftbq0ZeXM0xSBKBLHZj9XCF34FaTNJF8XgHqO487u/OOvWjxGk0ShaGl0+NvpPmvBXVNyXwHGi0AT6sDs1bnPSfe7v/5n5xzNSbJIvmUAtz1pATLv8hPkEestVUm6SL5hAJMzwgn1fqx+SoIAppykHOuYdSX8kOSF5ky0lkkHwfwGYA1zrkLxruhCU3o/6p/AFhtDn6+kURkAAAAAElFTkSuQmCC'), auto;
+}
+
+/* Hide default cursor on entire page when cake page is active */
+html.cake-page-active,
+html.cake-page-active *,
+body.cake-page-active,
+body.cake-page-active *,
+.cake-page,
+.cake-page * {
+    cursor: none !important;
+}
+
+/* Animated gradient background */
+.animated-gradient {
+    background: linear-gradient(-45deg, #fecdd3, #e9d5ff, #fce7f3, #f3e8ff);
+    background-size: 400% 400%;
+    animation: gradientShift 15s ease infinite;
+    transition: background 3s ease;
+}
+
+@keyframes gradientShift {
+    0% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+/* Text Loader */
+.text-loader {
+    background: rgba(254, 205, 211, 0.95);
+    backdrop-filter: blur(10px);
+    animation: loaderFadeOut 0.5s ease forwards;
+    animation-delay: 10s;
+}
+
+.loader-content {
+    animation: textFadeIn 0.8s ease forwards;
+}
+
+.loader-text {
+    background: linear-gradient(45deg, #d946ef, #a855f7, #ec4899, #d946ef);
+    background-size: 300% 300%;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    animation: textGradient 3s ease infinite;
+    font-family: 'Dancing Script', 'Brush Script MT', cursive;
+    line-height: 1.5;
+}
+
+@keyframes textGradient {
+    0%, 100% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+}
+
+@keyframes textFadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes loaderFadeOut {
+    from {
+        opacity: 1;
+        visibility: visible;
+    }
+    to {
+        opacity: 0;
+        visibility: hidden;
+    }
+}
+
+/* Cake Page */
+.cake-page {
+    opacity: 0;
+    animation: cakePageFadeIn 0.5s ease forwards;
+    cursor: none; /* Hide default cursor on cake page */
+}
+
+/* Hide default cursor everywhere on cake page */
+body.cake-page-active,
+body.cake-page-active *,
+.cake-page,
+.cake-page * {
+    cursor: none !important; /* Hide default cursor everywhere */
+}
+
+.cake-page.hidden {
+    display: none;
+}
+
+.cake-page:not(.hidden) {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+@keyframes cakePageFadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.cake-message.hide-message {
+    opacity: 0 !important;
+    visibility: hidden !important;
+    transform: translateY(-20px) !important;
+    transition: opacity 0.5s ease, transform 0.5s ease, visibility 0.5s ease !important;
+}
+
+/* Khai le cake text */
+.khai-le-text {
+    background: linear-gradient(45deg, #d946ef, #a855f7, #ec4899, #d946ef);
+    background-size: 300% 300%;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    animation: textGradient 3s ease infinite;
+    font-family: 'Dancing Script', 'Brush Script MT', cursive;
+    margin-top: 20px;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(20px);
+    transition: opacity 0.8s ease, transform 0.8s ease, visibility 0.8s ease;
+}
+
+.khai-le-text.hidden-text {
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(20px);
+}
+
+.khai-le-text.show-text {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+    animation: textGradient 3s ease infinite, fadeInUp 0.8s ease forwards;
+}
+
+.khai-le-text.hide-text {
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(-20px);
+    transition: opacity 0.8s ease, transform 0.8s ease, visibility 0.8s ease;
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Cake Video */
+.cake-video {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    min-width: 100%;
+    min-height: 100%;
+    width: auto;
+    height: auto;
+    transform: translate(-50%, -50%);
+    object-fit: cover;
+    opacity: 0.5;
+    z-index: 1;
+    pointer-events: none;
+    transition: opacity 1s ease;
+}
+
+.cake-video.hidden-video {
+    opacity: 0;
+    visibility: hidden;
+}
+
+.cake-video.show-video {
+    opacity: 0.5;
+    visibility: visible;
+}
+
+/* Surprise Section */
+.surprise-section {
+    position: fixed;
+    bottom: 40px;
+    left: 0;
+    right: 0;
+    width: 100%;
+    text-align: center;
+    z-index: 1001;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(20px);
+    padding: 0 20px;
+    box-sizing: border-box;
+}
+
+.surprise-section.hidden-section {
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(20px);
+}
+
+.surprise-section.show-section {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+    animation: sectionFadeIn 0.8s ease forwards;
+}
+
+@keyframes sectionFadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.surprise-header {
+    color: #ffffff;
+    background-color: #c2185b;
+    font-family: 'Dancing Script', 'Brush Script MT', cursive;
+    margin-bottom: 16px;
+    padding: 16px 24px;
+    border-radius: 0;
+    display: block;
+    width: 100%;
+    text-align: center;
+    text-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 4px 15px rgba(194, 24, 91, 0.4);
+    position: relative;
+    left: 0;
+    right: 0;
+}
+
+.surprise-button {
+    background: linear-gradient(135deg, #9333ea, #a855f7, #c084fc);
+    color: #ffffff;
+    border: none;
+    padding: 16px 40px;
+    font-size: 1.2rem;
+    font-weight: 600;
+    border-radius: 50px;
+    cursor: none; /* Hide default cursor, use knife cursor */
+    box-shadow: 0 4px 20px rgba(147, 51, 234, 0.4);
+    transition: all 0.3s ease;
+    font-family: 'Dancing Script', 'Brush Script MT', cursive;
+    letter-spacing: 1px;
+}
+
+.surprise-button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 25px rgba(147, 51, 234, 0.6);
+    background: linear-gradient(135deg, #a855f7, #c084fc, #ddd6fe);
+}
+
+.surprise-button:active {
+    transform: translateY(0);
+    box-shadow: 0 2px 15px rgba(147, 51, 234, 0.4);
+}
+
+@media (max-width: 640px) {
+    .surprise-section {
+        bottom: 30px;
+        padding: 0 20px;
+    }
+    
+    .surprise-header {
+        font-size: 1.5rem;
+        margin-bottom: 12px;
+    }
+    
+    .surprise-button {
+        padding: 14px 32px;
+        font-size: 1rem;
+    }
+}
+
+/* Paper Animation Styles */
+.paper-animation-container {
+    overflow: hidden;
+}
+
+.paper-piece {
+    position: absolute;
+    opacity: 0.85;
+    animation: paperBlast ease-out forwards;
+    transform-origin: center;
+    pointer-events: none;
+    z-index: 100;
+}
+
+@keyframes paperBlast {
+    0% {
+        transform: translate(-50%, -50%) rotate(var(--rotation, 0deg)) scale(1);
+        opacity: 1;
+    }
+    30% {
+        opacity: 0.9;
+    }
+    70% {
+        opacity: 0.6;
+    }
+    100% {
+        transform: translate(calc(var(--delta-x, 0px) - 50%), calc(var(--delta-y, 0px) - 50%)) 
+                    rotate(calc(var(--rotation, 0deg) + var(--rotation-speed, 0deg))) 
+                    scale(0.2);
+        opacity: 0;
+    }
+}
+
+.cake-content {
+    color: #4a5568;
+    cursor: none; /* Hide default cursor */
+}
+
+.cake-content * {
+    cursor: none; /* Hide default cursor on all child elements */
+}
+
+.cake-image {
+    max-width: 90%;
+    max-height: 60vh;
+    width: auto;
+    height: auto;
+    object-fit: contain;
+    transition: transform 0.3s ease, opacity 0.5s ease;
+    user-select: none;
+    -webkit-user-select: none;
+    touch-action: manipulation;
+    cursor: none; /* Hide default cursor when hovering over cake */
+}
+
+.cake-image:hover {
+    transform: scale(1.05);
+}
+
+.cake-image:active {
+    transform: scale(0.98);
+}
+
+/* Knife Cursor Styles */
+.knife-cursor {
+    position: fixed;
+    width: 60px;
+    height: 60px;
+    pointer-events: none;
+    z-index: 99999; /* Very high z-index to stay on top */
+    transform-origin: center center;
+    transition: transform 0.1s ease-out, opacity 0.2s ease;
+    animation: knifeFloat 2s ease-in-out infinite;
+    filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.3));
+    display: none;
+    opacity: 1;
+    left: 0;
+    top: 0;
+}
+
+.knife-cursor.active {
+    display: block !important;
+    opacity: 1 !important;
+    visibility: visible !important;
+}
+
+@keyframes knifeFloat {
+    0%, 100% {
+        transform: translate(-50%, -50%) rotate(-10deg) scale(1);
+    }
+    50% {
+        transform: translate(-50%, -50%) rotate(10deg) scale(1.05);
+    }
+}
+
+.knife-cursor.hovering {
+    animation: knifeHover 0.5s ease-in-out infinite;
+    transform: translate(-50%, -50%) rotate(15deg) scale(1.1);
+}
+
+@keyframes knifeHover {
+    0%, 100% {
+        transform: translate(-50%, -50%) rotate(15deg) scale(1.1);
+    }
+    50% {
+        transform: translate(-50%, -50%) rotate(25deg) scale(1.15);
+    }
+}
+
+.knife-cursor.cutting {
+    animation: knifeCut 0.3s ease-in-out;
+}
+
+@keyframes knifeCut {
+    0% {
+        transform: translate(-50%, -50%) rotate(0deg) scale(1);
+    }
+    25% {
+        transform: translate(-50%, -50%) rotate(45deg) scale(1.2);
+    }
+    50% {
+        transform: translate(-50%, -50%) rotate(-20deg) scale(1.1);
+    }
+    75% {
+        transform: translate(-50%, -50%) rotate(30deg) scale(1.15);
+    }
+    100% {
+        transform: translate(-50%, -50%) rotate(0deg) scale(1);
+    }
+}
+
+/* Mobile adjustments */
+@media (max-width: 768px) {
+    .knife-cursor {
+        width: 50px;
+        height: 50px;
+    }
+}
+
+@media (max-width: 480px) {
+    .knife-cursor {
+        width: 40px;
+        height: 40px;
+    }
+}
+
+.cake-image.cake-cut {
+    animation: cakeCutAnimation 0.5s ease;
+}
+
+@keyframes cakeCutAnimation {
+    0% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.1) rotate(2deg);
+    }
+    100% {
+        transform: scale(1);
+    }
+}
+
+.cake-message {
+    color: #9333ea;
+    font-family: 'Dancing Script', 'Brush Script MT', cursive;
+    max-width: 600px;
+    margin: 0 auto;
+    transition: opacity 0.5s ease;
+    line-height: 1.6;
+}
+
+@keyframes titleGradient {
+    0%, 100% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+}
+
+/* Mobile responsive */
+@media (max-width: 640px) {
+    .loader-text {
+        font-size: 1.5rem;
+        line-height: 1.4;
+    }
+    
+    .cake-title {
+        font-size: 2.5rem;
+    }
+}
+

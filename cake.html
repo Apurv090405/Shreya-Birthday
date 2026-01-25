@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cake - Shreyu's Birthday</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;500;600;700&family=Allura&family=Great+Vibes&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="cake.css">
+</head>
+<body class="min-h-screen flex items-center justify-center relative overflow-hidden">
+    <!-- Background gradient -->
+    <div class="animated-gradient absolute inset-0"></div>
+    
+    <!-- Text Loader (shown for 10 seconds) -->
+    <div id="text-loader" class="text-loader absolute inset-0 flex items-center justify-center z-50">
+        <div class="loader-content text-center px-4">
+            <p class="loader-text text-3xl sm:text-4xl md:text-5xl font-bold">
+                hyyeee, ketlu blush kere chhe haju surprice to baki chhe
+            </p>
+        </div>
+    </div>
+    
+    <!-- Main Cake Page (hidden initially) -->
+    <div id="cake-page" class="cake-page hidden absolute inset-0 z-40">
+        <!-- Paper Animation Container -->
+        <div id="cake-paper-animation" class="paper-animation-container absolute inset-0 pointer-events-none z-30"></div>
+        
+        <div class="cake-content text-center px-4 flex flex-col items-center justify-center min-h-screen relative z-10">
+            <!-- Animated Knife Cursor -->
+            <img id="knife-cursor" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEAAAABACAYAAACqaXHeAAAACXBIWXMAAAsTAAALEwEAmpwYAAAFXklEQVR4nO2aW2wUVRjH/1w0XqOEIIIx0WDQxgdiTEmQ8IAkCuKLt2BLKxixuy0g8ZKIilkwjRGFlkIRiAkkEGaaauSFxBguxbYWLNA5haa7dQvtlt2F7U4LhNIt7cx85sCM7G532m6BZGa6v+R72ezsnt937ucMkCFDhgwZMmTIYGPcIZrnDionXUHlmjukHi4MUxbGCgXhgbfdIeWGO6TS/xFUoisu0rNwOt9dUla4g8pAgrwerqBytihCj8CpbI4qReWyqnwbGSwfFxvgRDZFlS/Ko4q2vUujMlkzTQAfE1aHaQqcRElU2SvIG7E6nDoBBYE+Wt4kr4JT2CQrnu2ymiDPY1VSAgoCNyj/VIByaryUU9tyBE6gpFP9PlmcR2lSF3B19NPS46235HlUN4dgd0pldaMh/OtVjfZcvp2Ary8l1v4yFr4tX+Ol96ubBzxE42FXtsrqT1z05y6NmvvoJn0a3UxCcefgfp/zd0tSArz9IBoHO1Iqq+VcfkeXRi03KIHd3SoVJsl/3NabIK+3gCDsSElU3W3ItybJN8S0QfI8lp+NDE5Abcth2AqicaWd6j5D/nyS/OmYRkWpprz2GOXU+lK0AN+nsAseovElUbWSy+/s0qitP1H+ZG/qmufT3tIT51I1/55l/7Q9CTtQSTRhi6we4PK7ujW6kCRfez31is9MXo+NsAMeoolbZDpoTG3Jzb6qZwj5+Dk/sfZ97zVFrL8Z2kV035ao+mf84ua6elv+0DUz+T5z+Rpv95Lq5pmwOp42emBrp3o0eXX3xzWNOvqJDlxNXz6n1nclt651LuwgXyZTVarlLY91SSu8kcovqfe/AquzuYMeLJPVajP5b8zk22OUW+c36fNeObem9WVYnY1RerRMVuvTleebHFP5Gm80v77tJVidH87RY9ua+wOpxMu7NPrKRP7mJqfxopl8Z96J87Ngddb+fnWy50SsszyF/DZZoy+HkOeRW/dvKvlw/rEW658AFxfLT312tOcyF1kTVmlDRKUfo7difUQ1PdGJO+VNUfu+0NLa88/D6uzDqWnb5/h9K/0DQ0uG0mkBvo68Ov9zsDoiTmeJYO0iGO3M9tOqltEn4QMpZDT7C3lNHXaQb5wnQOri8kbcSRL4/J9b5z+35HjbM7A6AqS3BLDeePk7TYIrpPhWBmg6rI4A9okISU0lP+okBBVvQTtNg5Uh0DgR0vqhxONjx2x/rDAwcH3Ymg8qzUURsvaevhJN94uQhJHKi2D9AtjCgiDNcQWVi+bNXj2yMkiTYWX2QHpcBDs2UnkBklYB6UPj+cIATeJ3eO6QcsYVUnpdIaX71hW3kmf542wBp6cLYCyNmucJWAcnIEB6UYDUkY68COkXOIEKSPMFsCvpybODVaiaCLsjoPFdEVIsvWbP6veCPQy7I6JxjXDzfIo+3yrgzFTYmUpUThDAtqXZ5HlERTDrH04OhwC2O315qacCDdmwO/vB3klXXgAb2I+GN+AEBLBDo2j6H8EpiJAupVn7HjgJASw45hY68YiQfhtTC51kKiDNHW7ud8xCxwwB7HO+izORZ3vBnoDTESG9JkD6SwBT9P5+QQArrkST9a+g7yZVqJo45qQzZBgEf/HwIQCTAPCd3tMAZgDg93T8opLvAfhLCvP0eFWPRQBe12MRgDf1WBT3+YK47xvPz9V/c5b+HzP0/5yql4GX5Z69DDkBAB/l+T3cbADzASyOK7xVYrFeNl7GmXqZednviCwACy0gN9rgZc8a6wl44W51gZl6P7R6F8jWyzrlbnQBmDCSQZC/rGQMYrxgxsA23CBofI8/YzzPf+ueDIL/ATGihMXztLbmAAAAAElFTkSuQmCC" alt="knife" class="knife-cursor">
+            <img id="cake-image" src="images/cake.png" alt="Birthday Cake" class="cake-image mb-6 cursor-pointer">
+            <p id="cake-message" class="cake-message text-xl sm:text-2xl md:text-3xl">
+                here is your virtual cake shreyuu, click on cake to cut the cake..
+            </p>
+            <p id="khai-le-text" class="khai-le-text hidden-text text-3xl sm:text-4xl md:text-5xl font-bold">
+                Khai le cake
+            </p>
+        </div>
+        
+        <!-- Background Video (hidden initially) -->
+        <video id="cake-video" class="cake-video hidden-video" autoplay loop muted playsinline>
+            <source src="images/cuteee.mp4" type="video/mp4">
+        </video>
+        
+        <!-- Surprise Section (hidden initially) -->
+        <div id="surprise-section" class="surprise-section hidden-section">
+            <p class="surprise-header text-2xl sm:text-3xl md:text-4xl mb-4">
+                Doremee ready for next surprice?
+            </p>
+            <button id="surprise-button" class="surprise-button">
+                your surprice await
+            </button>
+        </div>
+    </div>
+
+    <script src="cake.js"></script>
+</body>
+</html>
+

@@ -1,0 +1,468 @@
+/* Surprise Page Styles */
+
+/* Custom cursor for entire website */
+* {
+    cursor: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADAAAAAwCAYAAABXAvmHAAAACXBIWXMAAAsTAAALEwEAmpwYAAAD2ElEQVR4nO2Yb2iVZRjGn/5BfakvQR86vM91PedtNCqaLEpossh9CE2iwoqS5TY1Mqc7uJpNbEpap/pQGOsPs3RkCTWQtERLTItZ6OzfahkNNetkEFkRRNCfO957e9xpphzne87eQ7vg5ny9f+e67+e9nseYCU1oQmOStfbcMAzPN+UokjMA/EzyLwBd1dXV55hyEoAvSQrToUS/ADZFjphyEYBfosaD5s2CykkKQXJX2YwUyaMKsGK/BEt2Cy6/2jvRV1FRcaFJugD8EDVslw9IkM1JsHSfoGqKd2IglUpdbJIsAN+rAx39QwBRdfQLrqrzEAfT6XRokiqSOQVY9skIQFQr9gsnz/AQR5xzV5gkCsBhHaFlH/0bIKqHBwVTbvMQR621k03SRPKgOrC073iAqFYdElw/2y/2ryTrTJIEYFAdaN/73wBRPXJYcMN9HuJ3a+3NJmkfMvvgBycGiOrRbwU3LfEQfwC42yRBJAd0hNp6Tw4wXPaOx/xO/A1gYRIc6FcH2t4rCGAEwnmIB8YVgOTH6sD9uwoGUIj6TqFLezey4wmwTwEW7zglAIWY0y10QyGQ5LPGmDNLDgBgj47Q4u2nDKAQ83uEl1zql/uVksdxku+rA5m3xgSgEIveFFZc5iE2p1Kp80oGAKBXHchsHTOAQrTuEFRW+XHaWbI4DuBdBVi05bQAgqjaevPj+N6SxHGS7+gILXzj9AGyURzvE1xZ4534vOhxHMB2daB5UzwA2ZwED32aH8cPhGGYLhoAyW0KsGBjfABZH8dv9BDfFS2Ok9yiIzS/J16AbE7sykFBzUwP8SOAa2IHiI49deDe12IHCKJadUiYF8edc1NjBSC5UQHu2VAcgOxQHLd1c70Tv8V6pwDQMwTwcvEAslEc/0YwveXYYscGQPJVBZj7UuHNrDwgQfseCVp3is1sE9v8uth568U2rBHUd2patbd26P0B01oEUxsFtXcKr73l2D7ECbBBAeZ0F7aYma35D2BjqT9JLogNAMB6BWhaW2Bwq/SN5Iaj+G4Abw87uQ7AM1G8JtlurW0BMI/kTOfcNGvtdWEYpkycItmtAI0vnLz5prX50XldbW3t2SYJAvCiHnENXSduftbq0ZeXM0xSBKBLHZj9XCF34FaTNJF8XgHqO487u/OOvWjxGk0ShaGl0+NvpPmvBXVNyXwHGi0AT6sDs1bnPSfe7v/5n5xzNSbJIvmUAtz1pATLv8hPkEestVUm6SL5hAJMzwgn1fqx+SoIAppykHOuYdSX8kOSF5ky0lkkHwfwGYA1zrkLxruhCU3o/6p/AFhtDn6+kURkAAAAAElFTkSuQmCC'), auto;
+}
+
+/* Animated gradient background */
+.animated-gradient {
+    background: linear-gradient(-45deg, #fecdd3, #e9d5ff, #fce7f3, #f3e8ff);
+    background-size: 400% 400%;
+    animation: gradientShift 15s ease infinite;
+    transition: background 3s ease;
+}
+
+@keyframes gradientShift {
+    0% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+.surprise-content {
+    color: #4a5568;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 10px;
+    overflow: hidden;
+}
+
+/* Wish Cards Container */
+.wish-cards-container {
+    width: 100%;
+    max-width: 1200px;
+    position: relative;
+    min-height: 400px;
+}
+
+.wish-cards-container.grid-mode {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(3, 1fr);
+    gap: 15px;
+    position: relative;
+    height: calc(100vh - 40px);
+    width: 100%;
+    max-width: 100%;
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+@media (max-width: 768px) {
+    .wish-cards-container.grid-mode {
+        grid-template-columns: repeat(2, 1fr);
+        grid-template-rows: repeat(3, 1fr);
+        gap: 10px;
+        padding: 10px;
+        height: calc(100vh - 20px);
+    }
+}
+
+@media (max-width: 480px) {
+    .wish-cards-container.grid-mode {
+        grid-template-columns: repeat(2, 1fr);
+        grid-template-rows: repeat(3, 1fr);
+        gap: 8px;
+        padding: 8px;
+        height: calc(100vh - 16px);
+    }
+}
+
+/* Wish Card - Flip Container */
+.wish-card {
+    width: 100%;
+    height: 100%;
+    min-height: 200px;
+    perspective: 1000px;
+    cursor: pointer;
+    position: relative;
+}
+
+.card-inner {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    transition: transform 0.8s;
+    transform-style: preserve-3d;
+}
+
+.wish-card.flipped .card-inner {
+    transform: rotateY(180deg);
+}
+
+.card-front,
+.card-back {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden;
+    border-radius: 8px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+}
+
+.card-front {
+    background: linear-gradient(135deg, #fef3f8 0%, #f5f0ff 50%, #fef3f8 100%);
+    border-left: 4px solid #d4af37;
+    border-right: 4px solid #1a1a1a;
+    border-top: 1px solid #e5e5e5;
+    border-bottom: 1px solid #e5e5e5;
+}
+
+.card-back {
+    background: linear-gradient(135deg, #fef3f8 0%, #f5f0ff 50%, #fef3f8 100%);
+    transform: rotateY(180deg);
+    border-left: 4px solid #d4af37;
+    border-right: 4px solid #1a1a1a;
+    border-top: 1px solid #e5e5e5;
+    border-bottom: 1px solid #e5e5e5;
+    padding: 30px 20px;
+}
+
+/* Elegant Card Front Design */
+.gift-back {
+    width: 100%;
+    height: 100%;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    padding: 15px 20px 20px 20px;
+    overflow-y: auto;
+    box-sizing: border-box;
+}
+
+/* Decorative Striped Pattern at Top */
+.gift-back::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 12px;
+    background: repeating-linear-gradient(
+        90deg,
+        #1a1a1a 0px,
+        #1a1a1a 8px,
+        #ffffff 8px,
+        #ffffff 16px
+    );
+    z-index: 1;
+}
+
+.gift-number {
+    font-size: 3.5rem;
+    font-weight: 400;
+    color: #d4af37;
+    font-family: 'Dancing Script', 'Great Vibes', cursive;
+    z-index: 2;
+    position: relative;
+    margin-top: 25px;
+    margin-bottom: 10px;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    letter-spacing: 2px;
+    flex-shrink: 0;
+}
+
+.click-hint {
+    font-size: 0.9rem;
+    font-weight: 400;
+    color: #6b7280;
+    font-family: 'Dancing Script', 'Great Vibes', cursive;
+    text-align: center;
+    margin: 0;
+    padding: 0 15px;
+    z-index: 2;
+    position: relative;
+    font-style: italic;
+    opacity: 0.8;
+}
+
+.wish-text-front {
+    display: none;
+}
+
+/* Expanded Card Modal */
+.expanded-card {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.7);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s ease, visibility 0.3s ease;
+    backdrop-filter: blur(5px);
+}
+
+.expanded-card.show-expanded {
+    opacity: 1;
+    visibility: visible;
+}
+
+.expanded-card.hidden-expanded {
+    opacity: 0;
+    visibility: hidden;
+}
+
+.expanded-card-content {
+    background: linear-gradient(135deg, #fef3f8 0%, #f5f0ff 50%, #fef3f8 100%);
+    border-left: 6px solid #d4af37;
+    border-right: 6px solid #1a1a1a;
+    border-top: 2px solid #e5e5e5;
+    border-bottom: 2px solid #e5e5e5;
+    border-radius: 20px;
+    padding: 50px 40px;
+    max-width: 600px;
+    width: 90%;
+    max-height: 80vh;
+    overflow-y: auto;
+    position: relative;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+    transform: scale(0.8);
+    transition: transform 0.3s ease;
+}
+
+.expanded-card.show-expanded .expanded-card-content {
+    transform: scale(1);
+}
+
+.close-button {
+    position: absolute;
+    top: 15px;
+    right: 20px;
+    background: transparent;
+    border: none;
+    font-size: 3rem;
+    color: #4a5568;
+    cursor: pointer;
+    width: 50px;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    transition: all 0.3s ease;
+    line-height: 1;
+    padding: 0;
+    font-weight: 300;
+}
+
+.close-button:hover {
+    background: rgba(0, 0, 0, 0.1);
+    color: #1a1a1a;
+    transform: rotate(90deg);
+}
+
+.expanded-number {
+    font-size: 5rem;
+    font-weight: 400;
+    color: #d4af37;
+    font-family: 'Dancing Script', 'Great Vibes', cursive;
+    text-align: center;
+    margin-bottom: 30px;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    letter-spacing: 2px;
+}
+
+.expanded-wish-text {
+    font-size: 1.8rem;
+    line-height: 1.8;
+    color: #4a5568;
+    font-family: 'Dancing Script', 'Great Vibes', cursive;
+    font-weight: 400;
+    text-align: center;
+    margin: 0;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+    hyphens: auto;
+}
+
+/* Remove old gift elements */
+.gift-bow,
+.gift-ribbon,
+.gift-ribbon-horizontal,
+.gift-ribbon-vertical {
+    display: none;
+}
+
+@media (max-width: 768px) {
+    .wish-card {
+        min-height: 180px;
+    }
+    
+    .gift-number {
+        font-size: 2.8rem;
+        margin-top: 20px;
+        margin-bottom: 8px;
+    }
+    
+    .click-hint {
+        font-size: 0.85rem;
+        padding: 0 12px;
+    }
+    
+    .gift-back::before {
+        height: 10px;
+    }
+    
+    .gift-back {
+        padding: 12px 15px 15px 15px;
+    }
+    
+    .card-front,
+    .card-back {
+        border-radius: 6px;
+        border-left-width: 3px;
+        border-right-width: 3px;
+    }
+    
+    .expanded-card-content {
+        padding: 40px 30px;
+        max-width: 90%;
+    }
+    
+    .expanded-number {
+        font-size: 4rem;
+        margin-bottom: 25px;
+    }
+    
+    .expanded-wish-text {
+        font-size: 1.5rem;
+        line-height: 1.7;
+    }
+    
+    .close-button {
+        font-size: 2.5rem;
+        width: 45px;
+        height: 45px;
+        top: 12px;
+        right: 15px;
+    }
+}
+
+@media (max-width: 480px) {
+    .wish-card {
+        min-height: 150px;
+    }
+    
+    .gift-number {
+        font-size: 2.2rem;
+        margin-top: 15px;
+        margin-bottom: 8px;
+    }
+    
+    .click-hint {
+        font-size: 0.75rem;
+        padding: 0 10px;
+    }
+    
+    .gift-back::before {
+        height: 8px;
+    }
+    
+    .card-front,
+    .card-back {
+        border-radius: 5px;
+        border-left-width: 3px;
+        border-right-width: 3px;
+    }
+    
+    .gift-back {
+        padding: 10px 12px 12px 12px;
+    }
+    
+    .expanded-card-content {
+        padding: 35px 25px;
+        max-width: 95%;
+        border-radius: 15px;
+    }
+    
+    .expanded-number {
+        font-size: 3.5rem;
+        margin-bottom: 20px;
+    }
+    
+    .expanded-wish-text {
+        font-size: 1.3rem;
+        line-height: 1.6;
+    }
+    
+    .close-button {
+        font-size: 2rem;
+        width: 40px;
+        height: 40px;
+        top: 10px;
+        right: 12px;
+    }
+}
+
+@keyframes cardSlideIn {
+    from {
+        opacity: 0;
+        transform: translateY(50px) scale(0.9);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+}
+
+.card-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+    padding: 20px;
+    box-sizing: border-box;
+    overflow-y: auto;
+}
+
+.wish-text {
+    font-size: 1.2rem;
+    line-height: 1.7;
+    color: #4a5568;
+    font-family: 'Dancing Script', 'Great Vibes', cursive;
+    font-weight: 400;
+    text-align: center;
+    margin: 0;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+    hyphens: auto;
+}
+
+@media (max-width: 768px) {
+    .wish-text {
+        font-size: 1.1rem;
+        line-height: 1.6;
+    }
+}
+
+@media (max-width: 480px) {
+    .wish-text {
+        font-size: 1rem;
+        line-height: 1.5;
+    }
+}
+

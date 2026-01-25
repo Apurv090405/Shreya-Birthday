@@ -1,0 +1,840 @@
+/* Custom styles for the coming soon page */
+
+/* Custom cursor for entire website */
+* {
+    cursor: url('data:image/png;base64, iVBORw0KGgoAAAANSUhEUgAAADAAAAAwCAYAAABXAvmHAAAACXBIWXMAAAsTAAALEwEAmpwYAAAD2ElEQVR4nO2Yb2iVZRjGn/5BfakvQR86vM91PedtNCqaLEpossh9CE2iwoqS5TY1Mqc7uJpNbEpap/pQGOsPs3RkCTWQtERLTItZ6OzfahkNNetkEFkRRNCfO957e9xpphzne87eQ7vg5ny9f+e67+e9nseYCU1oQmOStfbcMAzPN+UokjMA/EzyLwBd1dXV55hyEoAvSQrToUS/ADZFjphyEYBfosaD5s2CykkKQXJX2YwUyaMKsGK/BEt2Cy6/2jvRV1FRcaFJugD8EDVslw9IkM1JsHSfoGqKd2IglUpdbJIsAN+rAx39QwBRdfQLrqrzEAfT6XRokiqSOQVY9skIQFQr9gsnz/AQR5xzV5gkCsBhHaFlH/0bIKqHBwVTbvMQR621k03SRPKgOrC073iAqFYdElw/2y/2ryTrTJIEYFAdaN/73wBRPXJYcMN9HuJ3a+3NJmkfMvvgBycGiOrRbwU3LfEQfwC42yRBJAd0hNp6Tw4wXPaOx/xO/A1gYRIc6FcH2t4rCGAEwnmIB8YVgOTH6sD9uwoGUIj6TqFLezey4wmwTwEW7zglAIWY0y10QyGQ5LPGmDNLDgBgj47Q4u2nDKAQ83uEl1zql/uVksdxku+rA5m3xgSgEIveFFZc5iE2p1Kp80oGAKBXHchsHTOAQrTuEFRW+XHaWbI4DuBdBVi05bQAgqjaevPj+N6SxHGS7+gILXzj9AGyURzvE1xZ4534vOhxHMB2daB5UzwA2ZwED32aH8cPhGGYLhoAyW0KsGBjfABZH8dv9BDfFS2Ok9yiIzS/J16AbE7sykFBzUwP8SOAa2IHiI49deDe12IHCKJadUiYF8edc1NjBSC5UQHu2VAcgOxQHLd1c70Tv8V6pwDQMwTwcvEAslEc/0YwveXYYscGQPJVBZj7UuHNrDwgQfseCVp3is1sE9v8uth568U2rBHUd2patbd26P0B01oEUxsFtXcKr73l2D7ECbBBAeZ0F7aYma35D2BjqT9JLogNAMB6BWhaW2Bwq/SN5Iaj+G4Abw87uQ7AM1G8JtlurW0BMI/kTOfcNGvtdWEYpkycItmtAI0vnLz5prX50XldbW3t2SYJAvCiHnENXSduftbq0ZeXM0xSBKBLHZj9XCF34FaTNJF8XgHqO487u/OOvWjxGk0ShaGl0+NvpPmvBXVNyXwHGi0AT6sDs1bnPSfe7v/5n5xzNSbJIvmUAtz1pATLv8hPkEestVUm6SL5hAJMzwgn1fqx+SoIAppykHOuYdSX8kOSF5ky0lkkHwfwGYA1zrkLxruhCU3o/6p/AFhtDn6+kURkAAAAAElFTkSuQmCC'), auto;
+}
+
+/* Animated gradient background - soft purple to pink */
+.animated-gradient {
+    background: linear-gradient(135deg, #e9d5ff 0%, #f3e8ff 20%, #fce7f3 40%, #fecdd3 60%, #f3e8ff 80%, #e9d5ff 100%);
+    background-size: 400% 400%;
+    animation: gradientShift 15s ease infinite;
+    transition: background 3s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+/* Add subtle glow spots in background */
+.animated-gradient::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: 
+        radial-gradient(circle at 10% 20%, rgba(233, 213, 255, 0.5) 0%, transparent 40%),
+        radial-gradient(circle at 90% 20%, rgba(252, 231, 243, 0.5) 0%, transparent 40%),
+        radial-gradient(circle at 20% 80%, rgba(255, 200, 220, 0.3) 0%, transparent 50%);
+    pointer-events: none;
+    z-index: 0;
+}
+
+@keyframes gradientShift {
+    0% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+/* Particles.js container */
+#particles-js {
+    width: 100%;
+    height: 100%;
+    background-color: transparent;
+    z-index: 1;
+}
+
+/* Ensure particles canvas is properly positioned */
+#particles-js canvas {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+/* Main title styling */
+.main-title {
+    font-family: 'Dancing Script', 'Great Vibes', 'Allura', cursive;
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: #d946ef;
+    text-shadow: 0 2px 10px rgba(217, 70, 239, 0.3);
+    position: relative;
+    display: inline-block;
+    width: 100%;
+    animation: fadeIn 0.8s ease-out;
+}
+
+.main-title .heart-icon {
+    font-size: 1.2em;
+    margin: 0 0.3em;
+    display: inline-block;
+    animation: heartBeat 2s ease-in-out infinite;
+}
+
+@keyframes heartBeat {
+    0%, 100% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.1);
+    }
+}
+
+/* Subtitles styling */
+.subtitle-1,
+.subtitle-2 {
+    font-family: 'Dancing Script', 'Great Vibes', cursive;
+    font-size: 1.3rem;
+    color: #a78bfa;
+    font-weight: 400;
+    animation: fadeIn 1s ease-out 0.3s both;
+}
+
+.subtitle-2 {
+    font-size: 1.1rem;
+    color: #a78bfa;
+    margin-top: 1rem;
+}
+
+/* Sparkle effect */
+.main-title::before,
+.main-title::after {
+    content: '✨';
+    position: absolute;
+    font-size: 0.6em;
+    opacity: 0.6;
+    animation: sparkle 3s ease-in-out infinite;
+}
+
+.main-title::before {
+    left: -1.5em;
+    top: 0.2em;
+}
+
+.main-title::after {
+    right: -1.5em;
+    top: 0.2em;
+    animation-delay: 1.5s;
+}
+
+@keyframes sparkle {
+    0%, 100% {
+        opacity: 0.3;
+        transform: scale(0.8);
+    }
+    50% {
+        opacity: 0.8;
+        transform: scale(1.2);
+    }
+}
+
+/* Countdown timer styles */
+.countdown-container {
+    perspective: 1000px;
+    flex-wrap: wrap;
+    animation: fadeIn 1s ease-out 0.5s both;
+}
+
+.timer-box {
+    background: rgba(255, 255, 255, 0.85);
+    border-radius: 16px;
+    padding: 20px 28px;
+    min-width: 100px;
+    text-align: center;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08), 0 2px 8px rgba(217, 70, 239, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    backdrop-filter: blur(10px);
+    animation: cardSlideIn 0.6s ease-out forwards;
+    opacity: 0;
+}
+
+.timer-box:nth-child(1) {
+    animation-delay: 0.6s;
+}
+
+.timer-box:nth-child(2) {
+    animation-delay: 0.7s;
+}
+
+.timer-box:nth-child(3) {
+    animation-delay: 0.8s;
+}
+
+.timer-box:nth-child(4) {
+    animation-delay: 0.9s;
+}
+
+.timer-box:hover {
+    transform: translateY(-4px) scale(1.05);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12), 0 4px 12px rgba(217, 70, 239, 0.15);
+}
+
+@keyframes cardSlideIn {
+    from {
+        opacity: 0;
+        transform: translateY(30px) scale(0.9);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+}
+
+@keyframes pulse {
+    0%, 100% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.02);
+    }
+}
+
+.timer-box:hover .timer-number {
+    animation: pulse 0.5s ease-in-out;
+}
+
+.timer-number {
+    font-size: 3rem;
+    font-weight: 700;
+    color: #d946ef;
+    line-height: 1;
+    margin-bottom: 8px;
+    font-family: 'Arial', 'Helvetica', sans-serif;
+    text-shadow: 0 2px 8px rgba(217, 70, 239, 0.2);
+}
+
+.timer-label {
+    font-size: 0.9rem;
+    color: #7c3aed;
+    letter-spacing: 0.5px;
+    font-weight: 500;
+    font-family: 'Dancing Script', 'Great Vibes', cursive;
+    text-transform: capitalize;
+}
+
+/* Mobile-first responsive adjustments */
+@media (max-width: 640px) {
+    .main-title {
+        font-size: 1.8rem;
+        margin-bottom: 0.5rem;
+    }
+    
+    .main-title .heart-icon {
+        font-size: 1em;
+        margin: 0 0.2em;
+    }
+    
+    .subtitle-1 {
+        font-size: 1rem;
+        margin-bottom: 1.5rem;
+    }
+    
+    .subtitle-2 {
+        font-size: 0.9rem;
+        margin-top: 0.8rem;
+    }
+    
+    .timer-box {
+        min-width: 70px;
+        padding: 14px 12px;
+        border-radius: 12px;
+    }
+    
+    .timer-number {
+        font-size: 2rem;
+        margin-bottom: 6px;
+    }
+    
+    .timer-label {
+        font-size: 0.75rem;
+        letter-spacing: 0.3px;
+    }
+    
+    .countdown-container {
+        gap: 8px;
+        flex-wrap: wrap;
+    }
+}
+
+@media (min-width: 641px) and (max-width: 768px) {
+    .main-title {
+        font-size: 2.2rem;
+    }
+    
+    .subtitle-1 {
+        font-size: 1.15rem;
+    }
+    
+    .subtitle-2 {
+        font-size: 1rem;
+    }
+    
+    .timer-box {
+        min-width: 85px;
+        padding: 16px 18px;
+    }
+    
+    .timer-number {
+        font-size: 2.5rem;
+    }
+    
+    .timer-label {
+        font-size: 0.85rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .main-title {
+        font-size: 1.5rem;
+        padding: 0 0.5rem;
+    }
+    
+    .main-title::before,
+    .main-title::after {
+        display: none;
+    }
+    
+    .subtitle-1 {
+        font-size: 0.9rem;
+        margin-bottom: 1.2rem;
+    }
+    
+    .subtitle-2 {
+        font-size: 0.8rem;
+        margin-top: 0.6rem;
+    }
+    
+    .timer-box {
+        min-width: 60px;
+        padding: 12px 10px;
+        border-radius: 10px;
+    }
+    
+    .timer-number {
+        font-size: 1.6rem;
+        margin-bottom: 4px;
+    }
+    
+    .timer-label {
+        font-size: 0.65rem;
+        letter-spacing: 0.2px;
+    }
+    
+    .countdown-container {
+        gap: 6px;
+    }
+}
+
+@media (min-width: 769px) {
+    .main-title {
+        font-size: 3rem;
+    }
+    
+    .subtitle-1 {
+        font-size: 1.5rem;
+    }
+    
+    .subtitle-2 {
+        font-size: 1.2rem;
+    }
+}
+
+/* Smooth animations */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.countdown-container {
+    animation: fadeIn 0.8s ease-out;
+}
+
+/* Mobile touch optimizations */
+* {
+    -webkit-tap-highlight-color: transparent;
+}
+
+button, a {
+    touch-action: manipulation;
+    -webkit-touch-callout: none;
+    user-select: none;
+}
+
+/* Prevent text selection on mobile */
+@media (max-width: 768px) {
+    body {
+        -webkit-touch-callout: none;
+        -webkit-user-select: none;
+        user-select: none;
+    }
+    
+    input, textarea {
+        -webkit-user-select: text;
+        user-select: text;
+    }
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+    width: 6px;
+}
+
+@media (max-width: 768px) {
+    ::-webkit-scrollbar {
+        width: 4px;
+    }
+}
+
+::-webkit-scrollbar-track {
+    background: rgba(255, 255, 255, 0.1);
+}
+
+::-webkit-scrollbar-thumb {
+    background: rgba(0, 0, 0, 0.2);
+    border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: rgba(0, 0, 0, 0.3);
+}
+
+/* Improve mobile performance */
+@media (max-width: 768px) {
+    .timer-box {
+        will-change: transform;
+        transform: translateZ(0);
+    }
+    
+    .animated-gradient {
+        will-change: background-position;
+    }
+    
+    #particles-js {
+        will-change: transform;
+    }
+}
+
+/* Better mobile spacing */
+@media (max-width: 640px) {
+    body {
+        padding: 0;
+    }
+    
+    .countdown-container {
+        margin-bottom: 1.5rem;
+    }
+    
+    .main-content {
+        padding: 1rem 0.5rem;
+    }
+}
+
+/* Additional mobile optimizations */
+@media (max-width: 480px) {
+    .main-title {
+        line-height: 1.2;
+    }
+    
+    .timer-box {
+        flex: 0 0 calc(50% - 6px);
+        max-width: calc(50% - 6px);
+    }
+}
+
+@media (min-width: 481px) and (max-width: 640px) {
+    .timer-box {
+        flex: 0 0 calc(50% - 8px);
+        max-width: calc(50% - 8px);
+    }
+}
+
+@media (min-width: 641px) {
+    .timer-box {
+        flex: 0 0 auto;
+    }
+}
+
+/* Celebration Page Styles */
+.celebration-page {
+    background: linear-gradient(-45deg, #fecdd3, #e9d5ff, #fce7f3, #f3e8ff);
+    background-size: 400% 400%;
+    animation: celebrationGradient 10s ease infinite;
+    transition: background 3s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.celebration-video {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    min-width: 100%;
+    min-height: 100%;
+    width: auto;
+    height: auto;
+    transform: translate(-50%, -50%);
+    object-fit: cover;
+    opacity: 0.5;
+    z-index: 1;
+    pointer-events: none;
+    transition: opacity 1s ease;
+}
+
+.celebration-video.hidden-video {
+    opacity: 0;
+    visibility: hidden;
+}
+
+.celebration-video.show-video {
+    opacity: 0.5;
+    visibility: visible;
+}
+
+/* Celebration Button */
+.celebration-button {
+    position: fixed;
+    bottom: 40px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: linear-gradient(135deg, #9333ea, #a855f7, #c084fc);
+    color: #ffffff;
+    border: none;
+    padding: 16px 40px;
+    font-size: 1.2rem;
+    font-weight: 600;
+    border-radius: 50px;
+    cursor: pointer;
+    z-index: 1001;
+    box-shadow: 0 4px 20px rgba(147, 51, 234, 0.4);
+    transition: all 0.3s ease;
+    font-family: 'Dancing Script', 'Brush Script MT', cursive;
+    letter-spacing: 1px;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateX(-50%) translateY(20px);
+}
+
+.celebration-button:hover {
+    transform: translateX(-50%) translateY(-2px);
+    box-shadow: 0 6px 25px rgba(147, 51, 234, 0.6);
+    background: linear-gradient(135deg, #a855f7, #c084fc, #ddd6fe);
+}
+
+.celebration-button:active {
+    transform: translateX(-50%) translateY(0);
+    box-shadow: 0 2px 15px rgba(147, 51, 234, 0.4);
+}
+
+.celebration-button.hidden-button {
+    opacity: 0;
+    visibility: hidden;
+    transform: translateX(-50%) translateY(20px);
+}
+
+.celebration-button.show-button {
+    opacity: 1;
+    visibility: visible;
+    transform: translateX(-50%) translateY(0);
+    animation: buttonFadeIn 0.8s ease forwards;
+}
+
+@keyframes buttonFadeIn {
+    from {
+        opacity: 0;
+        transform: translateX(-50%) translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(-50%) translateY(0);
+    }
+}
+
+@media (max-width: 640px) {
+    .celebration-button {
+        bottom: 30px;
+        padding: 14px 32px;
+        font-size: 1rem;
+    }
+}
+
+@keyframes celebrationGradient {
+    0% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+.celebration-content {
+    color: #4a5568;
+}
+
+.celebration-title {
+    background: linear-gradient(45deg, #d946ef, #a855f7, #ec4899, #d946ef);
+    background-size: 300% 300%;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    animation: titleGradient 3s ease infinite;
+    font-family: 'Dancing Script', 'Brush Script MT', 'Lucida Handwriting', 'Allura', 'Great Vibes', cursive;
+    line-height: 1.2;
+    transition: all 1.5s ease;
+    display: block;
+}
+
+.celebration-title .title-line-1,
+.celebration-title .title-line-2 {
+    display: block;
+}
+
+.celebration-title {
+    position: relative;
+}
+
+.celebration-title.move-to-top {
+    position: fixed !important;
+    top: 20px !important;
+    left: 50% !important;
+    transform: translateX(-50%) !important;
+    font-size: 1.8rem !important;
+    margin: 0 !important;
+    padding: 0 20px !important;
+    z-index: 1000 !important;
+    width: auto !important;
+    animation: titleGradient 3s ease infinite, moveToTop 1.5s ease forwards !important;
+    white-space: nowrap !important;
+    line-height: 1 !important;
+}
+
+.celebration-title.move-to-top .title-line-1,
+.celebration-title.move-to-top .title-line-2 {
+    display: inline !important;
+}
+
+.celebration-title.move-to-top .title-line-1::after {
+    content: ' ' !important;
+}
+
+.celebration-message {
+    transition: opacity 0.8s ease, transform 0.8s ease;
+}
+
+.celebration-message.hide-message {
+    opacity: 0 !important;
+    transform: translateY(-20px) !important;
+    pointer-events: none !important;
+    visibility: hidden !important;
+}
+
+@media (min-width: 640px) {
+    .celebration-title.move-to-top {
+        font-size: 2.2rem !important;
+    }
+}
+
+@media (min-width: 768px) {
+    .celebration-title.move-to-top {
+        font-size: 2.8rem !important;
+    }
+}
+
+@keyframes moveToTop {
+    0% {
+        position: relative;
+        top: auto;
+        left: auto;
+        transform: translateX(0) translateY(0);
+    }
+    100% {
+        position: fixed;
+        top: 20px;
+        left: 50%;
+        transform: translateX(-50%) translateY(0);
+    }
+}
+
+@keyframes titleGradient {
+    0%, 100% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+}
+
+.celebration-message {
+    color: #9333ea;
+    text-shadow: none;
+}
+
+.celebration-emoji {
+    filter: drop-shadow(0 0 10px rgba(255, 64, 129, 0.8));
+}
+
+@keyframes spin-slow {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+.animate-spin-slow {
+    animation: spin-slow 10s linear infinite;
+}
+
+body.celebration-mode {
+    overflow: hidden;
+}
+
+body.celebration-mode .animated-gradient,
+body.celebration-mode #particles-js,
+body.celebration-mode .countdown-container {
+    opacity: 0;
+    transition: opacity 1s ease;
+}
+
+/* Party Animation Styles */
+.party-animation-container {
+    overflow: hidden;
+}
+
+.confetti {
+    position: absolute;
+    top: -10px;
+    border-radius: 50%;
+    animation: confettiFall linear forwards;
+    box-shadow: 0 0 10px currentColor;
+}
+
+@keyframes confettiFall {
+    0% {
+        transform: translateY(0) rotate(0deg);
+        opacity: 1;
+    }
+    100% {
+        transform: translateY(100vh) rotate(720deg);
+        opacity: 0;
+    }
+}
+
+.balloon {
+    position: absolute;
+    bottom: -100px;
+    width: 50px;
+    height: 70px;
+    border-radius: 50% 50% 50% 50% / 60% 60% 40% 40%;
+    animation: balloonRise linear forwards;
+    box-shadow: 0 0 20px rgba(255, 64, 129, 0.6);
+}
+
+.balloon::before {
+    content: '';
+    position: absolute;
+    bottom: -20px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 2px;
+    height: 100px;
+    background: rgba(255, 255, 255, 0.5);
+}
+
+@keyframes balloonRise {
+    0% {
+        transform: translateY(0) translateX(0);
+        opacity: 1;
+    }
+    100% {
+        transform: translateY(-120vh) translateX(50px);
+        opacity: 0;
+    }
+}
+
+.hidden {
+    display: none !important;
+}
+
+.hidden-content {
+    opacity: 0;
+    visibility: hidden;
+}
+
+.fade-in-up {
+    animation: fadeInUp 1s ease-out forwards;
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+        visibility: hidden;
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+        visibility: visible;
+    }
+}
+
+/* Paper Blast Effect */
+.paper-piece {
+    position: absolute;
+    opacity: 0.95;
+    animation: paperBlast ease-out forwards;
+    transform-origin: center;
+    pointer-events: none;
+    z-index: 100;
+}
+
+@keyframes paperBlast {
+    0% {
+        transform: translate(-50%, -50%) rotate(var(--rotation, 0deg)) scale(1);
+        opacity: 1;
+    }
+    30% {
+        opacity: 0.9;
+    }
+    70% {
+        opacity: 0.6;
+    }
+    100% {
+        transform: translate(calc(var(--delta-x, 0px) - 50%), calc(var(--delta-y, 0px) - 50%)) 
+                    rotate(calc(var(--rotation, 0deg) + var(--rotation-speed, 0deg))) 
+                    scale(0.2);
+        opacity: 0;
+    }
+}
+
+/* Multiple paper blast bursts with different timing */
+.paper-piece:nth-child(odd) {
+    animation-timing-function: cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.paper-piece:nth-child(even) {
+    animation-timing-function: cubic-bezier(0.55, 0.06, 0.68, 0.19);
+}
+
+.paper-piece:nth-child(3n) {
+    animation-timing-function: cubic-bezier(0.68, -0.55, 0.27, 1.55);
+}
+

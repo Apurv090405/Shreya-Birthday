@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shreyu's Birthday Countdown</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;500;600;700&family=Allura&family=Great+Vibes&family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body class="min-h-screen flex items-center justify-center relative overflow-hidden">
+    <!-- Animated Background gradient -->
+    <div class="animated-gradient absolute inset-0"></div>
+    
+    <!-- Particles.js container -->
+    <div id="particles-js" class="absolute inset-0"></div>
+    
+    <!-- Main content container -->
+    <div class="relative z-10 w-full max-w-6xl mx-auto px-4 sm:px-6 py-6 sm:py-12">
+        <!-- Main heading with hearts -->
+        <h1 class="main-title text-center mb-4 sm:mb-6 px-4">
+            <span class="heart-icon"></span>
+            Countdown to the Day
+            <span class="heart-icon"></span>
+        </h1>
+        
+        <!-- First subtitle in Gujarati -->
+        <p class="subtitle-1 text-center mb-8 sm:mb-12 px-4">
+            Shreyuu's Birthday
+        </p>
+
+        <!-- Countdown Timer -->
+        <div class="countdown-container flex flex-wrap justify-center items-center gap-2 sm:gap-3 md:gap-4 mb-6 sm:mb-8 px-2 sm:px-4">
+            <div class="timer-box">
+                <div class="timer-number" id="days">00</div>
+                <div class="timer-label">Days</div>
+            </div>
+            <div class="timer-box">
+                <div class="timer-number" id="hours">00</div>
+                <div class="timer-label">Hours</div>
+            </div>
+            <div class="timer-box">
+                <div class="timer-number" id="minutes">00</div>
+                <div class="timer-label">Minutes</div>
+            </div>
+            <div class="timer-box">
+                <div class="timer-number" id="seconds">00</div>
+                <div class="timer-label">Seconds</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Celebration Page (Hidden initially) -->
+    <div id="celebration-page" class="celebration-page hidden absolute inset-0 z-50 flex items-center justify-center">
+        <!-- Background Video -->
+        <video class="celebration-video hidden-video" autoplay loop muted playsinline>
+            <source src="images/Dorami.mp4" type="video/mp4">
+        </video>
+        
+        <!-- Confetti for celebration page -->
+        <div id="celebration-confetti" class="party-animation-container absolute inset-0 pointer-events-none"></div>
+        
+        <div class="celebration-content text-center px-4 relative z-10 hidden-content">
+            <h1 class="celebration-title text-5xl sm:text-7xl md:text-8xl font-bold mb-6">
+                <span class="title-line-1">Happy Birthday</span><br>
+                <span class="title-line-2">Shreyu!</span>
+            </h1>
+            <p class="celebration-message text-2xl sm:text-3xl md:text-4xl mb-8">
+                The wait is over! Let's celebrate!
+            </p>
+        </div>
+        
+        <!-- Purple Button -->
+        <button class="celebration-button hidden-button">
+            Click here
+        </button>
+    </div>
+
+    <!-- Party Animation Container -->
+    <div id="party-animation" class="party-animation-container absolute inset-0 pointer-events-none z-40"></div>
+
+    <script src="script.js"></script>
+</body>
+</html>
+

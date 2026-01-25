@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Surprise - Shreyu's Birthday</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;500;600;700&family=Allura&family=Great+Vibes&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="surprise.css">
+</head>
+<body class="min-h-screen flex items-center justify-center relative overflow-hidden">
+    <!-- Background gradient -->
+    <div class="animated-gradient absolute inset-0"></div>
+    
+    <!-- Main Surprise Content -->
+    <div class="surprise-content text-center px-4 relative z-10 w-full max-w-4xl mx-auto">
+        <!-- Wish Cards Container -->
+        <div id="wish-cards-container" class="wish-cards-container grid-mode">
+            <!-- Card 1 -->
+            <div class="wish-card" data-card="1" onclick="openCard(1)">
+                <div class="card-inner">
+                    <div class="card-front">
+                        <div class="gift-back">
+                            <div class="gift-number">1</div>
+                            <p class="click-hint">click to open wish card</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Expanded Card Modal 1 -->
+            <div id="expanded-card-1" class="expanded-card hidden-expanded">
+                <div class="expanded-card-content">
+                    <button class="close-button" onclick="closeCard(1)">×</button>
+                    <div class="expanded-number">1</div>
+                    <p class="expanded-wish-text">
+                        I wish to my krishna that next birthday shreyuu is studing the mbbs. and after some year my shreyuu is called Dr. Shreya.
+                    </p>
+                </div>
+            </div>
+            
+            <!-- Card 2 -->
+            <div class="wish-card" data-card="2" onclick="openCard(2)">
+                <div class="card-inner">
+                    <div class="card-front">
+                        <div class="gift-back">
+                            <div class="gift-number">2</div>
+                            <p class="click-hint">click to open wish card</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Expanded Card Modal 2 -->
+            <div id="expanded-card-2" class="expanded-card hidden-expanded">
+                <div class="expanded-card-content">
+                    <button class="close-button" onclick="closeCard(2)">×</button>
+                    <div class="expanded-number">2</div>
+                    <p class="expanded-wish-text">
+                        Mine second wish is you always stay happpiest and healty, your all sadness comes to me..
+                    </p>
+                </div>
+            </div>
+            
+            <!-- Card 3 -->
+            <div class="wish-card" data-card="3" onclick="openCard(3)">
+                <div class="card-inner">
+                    <div class="card-front">
+                        <div class="gift-back">
+                            <div class="gift-number">3</div>
+                            <p class="click-hint">click to open wish card</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Expanded Card Modal 3 -->
+            <div id="expanded-card-3" class="expanded-card hidden-expanded">
+                <div class="expanded-card-content">
+                    <button class="close-button" onclick="closeCard(3)">×</button>
+                    <div class="expanded-number">3</div>
+                    <p class="expanded-wish-text">
+                        Always keep this big smile with you shreyuu. no matters what situation was.
+                    </p>
+                </div>
+            </div>
+            
+            <!-- Card 4 -->
+            <div class="wish-card" data-card="4" onclick="openCard(4)">
+                <div class="card-inner">
+                    <div class="card-front">
+                        <div class="gift-back">
+                            <div class="gift-number">4</div>
+                            <p class="click-hint">click to open wish card</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Expanded Card Modal 4 -->
+            <div id="expanded-card-4" class="expanded-card hidden-expanded">
+                <div class="expanded-card-content">
+                    <button class="close-button" onclick="closeCard(4)">×</button>
+                    <div class="expanded-number">4</div>
+                    <p class="expanded-wish-text">
+                        Shreyaa thanks to beign my speciall person.
+                    </p>
+                </div>
+            </div>
+            
+            <!-- Card 5 -->
+            <div class="wish-card" data-card="5" onclick="openCard(5)">
+                <div class="card-inner">
+                    <div class="card-front">
+                        <div class="gift-back">
+                            <div class="gift-number">5</div>
+                            <p class="click-hint">click to open wish card</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Expanded Card Modal 5 -->
+            <div id="expanded-card-5" class="expanded-card hidden-expanded">
+                <div class="expanded-card-content">
+                    <button class="close-button" onclick="closeCard(5)">×</button>
+                    <div class="expanded-number">5</div>
+                    <p class="expanded-wish-text">
+                        I promis you I will always with you in all the situaltion all the time, nothing matters only you..
+                    </p>
+                </div>
+            </div>
+            
+            <!-- Card 6 -->
+            <div class="wish-card" data-card="6" onclick="openCard(6)">
+                <div class="card-inner">
+                    <div class="card-front">
+                        <div class="gift-back">
+                            <div class="gift-number">6</div>
+                            <p class="click-hint">click to open wish card</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Expanded Card Modal 6 -->
+            <div id="expanded-card-6" class="expanded-card hidden-expanded">
+                <div class="expanded-card-content">
+                    <button class="close-button" onclick="closeCard(6)">×</button>
+                    <div class="expanded-number">6</div>
+                    <p class="expanded-wish-text">
+                        Chal shreyuu smile aapi ne ak vaar aakho bhandh kari de "Jay Shree Krishna, Mahadev Har"
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="surprise.js"></script>
+</body>
+</html>
+
