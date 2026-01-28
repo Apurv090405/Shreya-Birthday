@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <title>Music Player - Shreyu's Birthday</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;500;600;700&family=Allura&family=Great+Vibes&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="player.css">
+</head>
+<body class="min-h-screen relative overflow-hidden">
+    <!-- Background gradient -->
+    <div class="animated-gradient absolute inset-0"></div>
+    
+    <!-- Main Player Container -->
+    <div class="player-container relative z-10 min-h-screen flex flex-col">
+        <!-- Header -->
+        <header class="player-header px-6 py-4">
+            <h1 class="player-title text-3xl sm:text-4xl font-bold">
+                <span class="heart-icon">🎵</span>
+                Shreyu's Birthday Playlist
+                <span class="heart-icon">🎵</span>
+            </h1>
+        </header>
+
+        <!-- Main Content Area -->
+        <main class="player-main flex-1 px-4 sm:px-6 pb-32">
+            <!-- Playlist -->
+            <div class="playlist-container">
+                <div class="playlist-header mb-6">
+                    <h2 class="playlist-title text-2xl font-semibold">Your Special Songs</h2>
+                </div>
+                
+                <div class="songs-list space-y-3">
+                    <!-- Song 1 -->
+                    <div class="song-item" data-song="0" data-src="images/Happiest_Birthday_Shreya.mp3">
+                        <div class="song-number">1</div>
+                        <div class="song-info flex-1">
+                            <div class="song-title">Happiest Birthday Shreya</div>
+                            <div class="song-artist">Special Birthday Song</div>
+                        </div>
+                        <div class="song-duration">--:--</div>
+                        <button class="play-btn" data-index="0">
+                            <svg class="play-icon" viewBox="0 0 24 24" fill="currentColor">
+                                <path d="M8 5v14l11-7z"/>
+                            </svg>
+                        </button>
+                    </div>
+
+                    <!-- Song 2 -->
+                    <div class="song-item" data-song="1" data-src="images/Shreya_Happy_BirthdayDost.mp3">
+                        <div class="song-number">2</div>
+                        <div class="song-info flex-1">
+                            <div class="song-title">Happy Birthday Dost</div>
+                            <div class="song-artist">For My Best Friend</div>
+                        </div>
+                        <div class="song-duration">--:--</div>
+                        <button class="play-btn" data-index="1">
+                            <svg class="play-icon" viewBox="0 0 24 24" fill="currentColor">
+                                <path d="M8 5v14l11-7z"/>
+                            </svg>
+                        </button>
+                    </div>
+
+                    <!-- Song 3 -->
+                    <div class="song-item" data-song="2" data-src="images/Shreya_My_Greatest_Gift.mp3">
+                        <div class="song-number">3</div>
+                        <div class="song-info flex-1">
+                            <div class="song-title">My Greatest Gift</div>
+                            <div class="song-artist">A Special Message</div>
+                        </div>
+                        <div class="song-duration">--:--</div>
+                        <button class="play-btn" data-index="2">
+                            <svg class="play-icon" viewBox="0 0 24 24" fill="currentColor">
+                                <path d="M8 5v14l11-7z"/>
+                            </svg>
+                        </button>
+                    </div>
+
+                    <!-- Song 4 -->
+                    <div class="song-item" data-song="3" data-src="images/SunshineShreya.mp3">
+                        <div class="song-number">4</div>
+                        <div class="song-info flex-1">
+                            <div class="song-title">Sunshine Shreya</div>
+                            <div class="song-artist">Bright & Beautiful</div>
+                        </div>
+                        <div class="song-duration">--:--</div>
+                        <button class="play-btn" data-index="3">
+                            <svg class="play-icon" viewBox="0 0 24 24" fill="currentColor">
+                                <path d="M8 5v14l11-7z"/>
+                            </svg>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </main>
+
+        <!-- Fixed Player Controls (Bottom) -->
+        <div class="player-controls fixed bottom-0 left-0 right-0">
+            <!-- Progress Bar -->
+            <div class="progress-container">
+                <div class="progress-bar">
+                    <div class="progress-fill" id="progress-fill"></div>
+                    <div class="progress-handle" id="progress-handle"></div>
+                </div>
+                <div class="time-display flex justify-between text-xs px-4">
+                    <span id="current-time">0:00</span>
+                    <span id="total-time">0:00</span>
+                </div>
+            </div>
+
+            <!-- Player Controls -->
+            <div class="controls-container">
+                <!-- Current Song Info -->
+                <div class="current-song-info">
+                    <div class="current-song-title" id="current-song-title">Select a song to play</div>
+                    <div class="current-song-artist" id="current-song-artist">Shreyu's Birthday Playlist</div>
+                </div>
+
+                <!-- Main Controls -->
+                <div class="main-controls">
+                    <button class="control-btn" id="prev-btn" title="Previous">
+                        <svg viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M6 6h2v12H6zm3.5 6l8.5 6V6z"/>
+                        </svg>
+                    </button>
+                    <button class="control-btn play-pause-btn" id="play-pause-btn" title="Play/Pause">
+                        <svg class="play-svg" viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M8 5v14l11-7z"/>
+                        </svg>
+                        <svg class="pause-svg hidden" viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M6 4h4v16H6zm8 0h4v16h-4z"/>
+                        </svg>
+                    </button>
+                    <button class="control-btn" id="next-btn" title="Next">
+                        <svg viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M6 18l8.5-6L6 6v12zM16 6v12h2V6h-2z"/>
+                        </svg>
+                    </button>
+                </div>
+
+                <!-- Volume Control -->
+                <div class="volume-control">
+                    <svg class="volume-icon" viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M3 9v6h4l5 5V4L7 9H3zm13.5 3c0-1.77-1.02-3.29-2.5-4.03v8.05c1.48-.73 2.5-2.25 2.5-4.02zM14 3.23v2.06c2.89.86 5 3.54 5 6.71s-2.11 5.85-5 6.71v2.06c4.01-.91 7-4.49 7-8.77s-2.99-7.86-7-8.77z"/>
+                    </svg>
+                    <input type="range" class="volume-slider" id="volume-slider" min="0" max="100" value="70">
+                    <span class="volume-value" id="volume-value">70%</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Hidden Audio Element -->
+        <audio id="audio-player" preload="metadata"></audio>
+    </div>
+
+    <script src="player.js"></script>
+</body>
+</html>
+

@@ -3,6 +3,10 @@
 (function() {
     'use strict';
 
+    let viewedCards = new Set();
+    const totalCards = 6;
+    const musicPlayerButton = document.getElementById('music-player-button');
+
     // Open expanded card
     window.openCard = function(cardNumber) {
         const expandedCard = document.getElementById(`expanded-card-${cardNumber}`);
@@ -11,6 +15,10 @@
             expandedCard.classList.add('show-expanded');
             // Prevent body scroll when modal is open
             document.body.style.overflow = 'hidden';
+            
+            // Track viewed card
+            viewedCards.add(cardNumber);
+            checkAllCardsViewed();
         }
     };
 
@@ -24,6 +32,14 @@
             document.body.style.overflow = '';
         }
     };
+
+    // Check if all cards have been viewed
+    function checkAllCardsViewed() {
+        if (viewedCards.size >= totalCards && musicPlayerButton) {
+            musicPlayerButton.classList.remove('hidden-section');
+            musicPlayerButton.classList.add('show-section');
+        }
+    }
 
     // Close card when clicking outside
     document.addEventListener('click', function(event) {
